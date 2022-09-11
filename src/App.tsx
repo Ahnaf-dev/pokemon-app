@@ -40,6 +40,14 @@ function App() {
         )}
 
         {isShowList && <PokeList setShowList={setShowList} />}
+        <footer>
+          <p>
+            Image Credits:{" "}
+            <a href="https://www.pngwing.com/en/free-png-cmqik">
+              https://www.pngwing.com/en/free-png-cmqik
+            </a>
+          </p>
+        </footer>
       </div>
     </ThemeProvider>
   );

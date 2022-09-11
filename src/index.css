@@ -195,3 +195,20 @@ img.pokedex {
   background-color: pink;
   color: black;
 }
+
+/* footer */
+
+footer {
+  padding: 1rem;
+  background-color: black;
+  color: white;
+  font-size: 1.5rem;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+footer a {
+  color: white;
+  text-decoration: rgb(107, 22, 100);
+}
