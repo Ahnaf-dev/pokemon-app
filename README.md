@@ -2,6 +2,8 @@
 
 A Pokemon App that allows you to pick a pokemon from a list and see it displayed on a PokeDex.
 
+Site: https://bejewelled-zuccutto-d33b63.netlify.app/
+
 ## Features
 
 - Fetched pokemon api with axios and destructured the necessary data to intergrate with UI
