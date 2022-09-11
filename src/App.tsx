@@ -1,57 +1,47 @@
-import React from 'react';
-import logo from './logo.svg';
-import { Counter } from './features/counter/Counter';
-import './App.css';
+import React, { useEffect, useState } from "react";
+import { useAppDispatch, useAppSelector } from "./app/hooks";
+import { Button } from "@mui/material";
+import { fetchPokedex } from "./app/features/Pokedex/pokeSlice";
+import PokeDisplay from "./components/PokeDisplay";
+import PokeList from "./components/PokeList";
+import PokeDisplayOverview from "./components/PokeDisplayOverview";
+import {
+  createTheme,
+  responsiveFontSizes,
+  ThemeProvider,
+} from "@mui/material/styles";
+
+let theme = createTheme();
+theme = responsiveFontSizes(theme);
 
 function App() {
+  const [isShowList, setShowList] = useState(false);
+  const dispatch = useAppDispatch();
+  const loading = useAppSelector((state) => state.pokedex.loading);
+
+  useEffect(() => {
+    dispatch(fetchPokedex());
+  }, []);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <Counter />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <span>
-          <span>Learn </span>
-          <a
-            className="App-link"
-            href="https://reactjs.org/"
-            target="_blank"
-            rel="noopener noreferrer"
+    <ThemeProvider theme={theme}>
+      <div className="App">
+        <img className="pokedex" src="pokemon.png" alt="" />
+        <PokeDisplay />
+        <PokeDisplayOverview />
+        {!loading && (
+          <Button
+            onClick={() => setShowList(true)}
+            id="showPokeBtn"
+            variant="outlined"
           >
-            React
-          </a>
-          <span>, </span>
-          <a
-            className="App-link"
-            href="https://redux.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Redux
-          </a>
-          <span>, </span>
-          <a
-            className="App-link"
-            href="https://redux-toolkit.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Redux Toolkit
-          </a>
-          ,<span> and </span>
-          <a
-            className="App-link"
-            href="https://react-redux.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            React Redux
-          </a>
-        </span>
-      </header>
-    </div>
+            Select Pokemon
+          </Button>
+        )}
+
+        {isShowList && <PokeList setShowList={setShowList} />}
+      </div>
+    </ThemeProvider>
   );
 }
 

@@ -1,13 +1,197 @@
-body {
+*,
+*::before,
+*::after {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-size: 1.8rem;
+}
+
+/* setting background */
+
+div#root {
+  height: 100vh;
+  width: 100vw;
+}
+
+div.App {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  background-color: white;
+  background: radial-gradient(
+    circle,
+    rgba(125, 122, 122, 0.4150035014005602) 6%,
+    rgba(0, 0, 0, 1) 32%,
+    rgba(117, 30, 30, 1) 77%
+  );
+}
+
+img.pokedex {
+  width: 70%;
+  height: 100%;
+}
+
+.display-poke {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  object-fit: contain;
+
+  max-width: 25rem;
+  top: 60%;
+  left: 5rem;
+  transform: translate(-50%, -50%);
+}
+
+@media screen and (min-width: 600px) {
+  .display-poke {
+    left: 10rem;
+    top: 70%;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .display-poke {
+    top: 54%;
+    max-width: 40rem;
+  }
+}
+
+/* button for toggling list */
+#showPokeBtn {
+  position: fixed;
+  left: 44%;
+  top: 49%;
+  background: rgb(121, 38, 38);
+  color: white;
+  padding: -70rem;
+  border: none;
+  font-size: 1rem;
+  -webkit-box-shadow: 0px 2px 17px 0px #ffffff;
+  box-shadow: 0px 2px 17px 0px #ffffff;
+  animation: upDown 5s ease-in-out 0;
+  animation-iteration-count: infinite;
+  animation-fill-mode: forwards;
+}
+
+@keyframes upDown {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@media screen and (min-width: 600px) {
+  #showPokeBtn {
+    left: 45%;
+    font-size: 1.5rem;
+  }
+}
+@media screen and (min-width: 950px) {
+  #showPokeBtn {
+    left: 49%;
+  }
+}
+@media screen and (min-width: 1380px) {
+  #showPokeBtn {
+    left: 51%;
+  }
+}
+@media screen and (min-width: 1680px) {
+  #showPokeBtn {
+    left: 53%;
+  }
+}
+/* type color classnames */
+
+.grass {
+  background-color: green;
+  color: white;
+}
+
+.fire {
+  background-color: tomato;
+  color: white;
+}
+
+.poison {
+  background-color: purple;
+  color: white;
+}
+
+.flying {
+  background-color: lightskyblue;
+  color: black;
+}
+
+.water {
+  background-color: darkcyan;
+  color: white;
+}
+
+.ground {
+  background-color: rgb(54, 21, 21);
+  color: white;
+}
+
+.normal {
+  background-color: cornsilk;
+  color: black;
+}
+.electric {
+  background-color: yellow;
+  color: black;
+}
+.bug {
+  background-color: lightgreen;
+  color: black;
+}
+
+.fighting {
+  background-color: brown;
+}
+
+.psychic {
+  background-color: purple;
+  color: white;
+}
+
+.rock {
+  background-color: gray;
+  color: white;
+}
+
+.ice {
+  background-color: rgb(161, 255, 255);
+  color: white;
+}
+
+.steel {
+  background-color: gray;
+  color: black;
+}
+
+.ghost {
+  background-color: black;
+  color: white;
+}
+
+.fairy {
+  background-color: pink;
+  color: black;
 }
