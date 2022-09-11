@@ -1,10 +1,22 @@
-# Getting Started with Create React App
+# Pokemon App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app), using the [Redux](https://redux.js.org/) and [Redux Toolkit](https://redux-toolkit.js.org/) TS template.
+A Pokemon App that allows you to pick a pokemon from a list and see it displayed on a PokeDex.
 
-## Available Scripts
+## Features
 
-In the project directory, you can run:
+- Fetched pokemon api with axios and destructured the necessary data to intergrate with UI
+- CreateAsyncThunk and extraReducers to do async actions on redux toolkit
+
+- Global state of pokemon list through redux toolkit and reducer to be able to set single pokemon upon clicking a pokemon from that list which will then get displayed on the pokedex
+
+- Conditional rendering of pokemon list upon clicking a button and dynamic styles based on pokemon type
+- Local state for filtering state with searchbar
+- Dynamic options based on unique pokemon types and filter based on select option
+- Material UI Components
+- Typescript 
+- Fully responsive across devices
+
+
 
 ### `npm start`
 
